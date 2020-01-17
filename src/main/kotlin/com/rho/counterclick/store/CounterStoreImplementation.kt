@@ -6,11 +6,20 @@ import reactor.core.publisher.Mono
 @Repository
 class CounterStoreImplementation() : CounterStore {
 
+    var sharedCounter: Long = 0
+
     override fun selectCounter(): Mono<Long> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Mono.fromCallable {
+            sharedCounter;
+        }
     }
 
+    @Synchronized
     override fun incrementCounter(): Mono<Long> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        sharedCounter++
+        return Mono.fromCallable {
+            sharedCounter
+
+        }
     }
 }
