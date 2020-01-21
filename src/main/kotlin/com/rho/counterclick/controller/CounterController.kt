@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin(origins = ["*"])
 @RestController
 @RequestMapping("counter")
 class CounterController(private val counterService: CounterService) {
