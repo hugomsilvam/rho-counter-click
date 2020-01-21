@@ -6,9 +6,10 @@ import org.springframework.data.relational.core.mapping.Table
 
 @Table(value = "Counter")
 data class Counter(
-        @Id
-        @Column(value = "counterID")
-        val id: Long,
+    @Id
+    @Column(value = "counterID")
+    val id: Long,
 
-        @Column(value = "counterValue")
-        val value: Long)
+    @Column(value = "counterValue")
+    val value: Long
+)

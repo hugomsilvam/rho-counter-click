@@ -6,16 +6,16 @@ import reactor.core.publisher.Mono
 
 @Service
 class CounterServiceImplementation(
-        private val counterRepository: CounterRepository
+    private val counterRepository: CounterRepository
 ) : CounterService {
 
     override fun getCounter(): Mono<Long> {
         return counterRepository.getCounter(1)
-                .map { it.value }
+            .map { it.value }
     }
 
     override fun incrementCounter(): Mono<Long> {
         return counterRepository.incrementCounter(1)
-                .map { it.value }
+            .map { it.value }
     }
 }
