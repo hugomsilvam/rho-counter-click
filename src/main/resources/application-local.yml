@@ -1,7 +1,5 @@
 spring:
   profiles: local
-  datasource:
-    url: jdbc:postgresql://ec2-3-215-41-107.compute-1.amazonaws.com:5432/dajvdq3pnd2jp1?user=sqhbvrorhjuntf&password=3c150db5d02f7e795c547de305401f1f1df2338f14136a648a7ba9f575b493da
 
 server:
   port: 8080

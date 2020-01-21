@@ -1,19 +1,21 @@
 package com.rho.counterclick.service
 
-import com.rho.counterclick.store.CounterStore
+import com.rho.counterclick.repository.CounterRepository
 import org.springframework.stereotype.Service
 import reactor.core.publisher.Mono
 
 @Service
 class CounterServiceImplementation(
-        private val counterStore : CounterStore
+        private val counterRepository: CounterRepository
 ) : CounterService {
 
     override fun getCounter(): Mono<Long> {
-        return counterStore.selectCounter()
+        return counterRepository.getCounter(1)
+                .map { it.value }
     }
 
     override fun incrementCounter(): Mono<Long> {
-        return counterStore.incrementCounter()
+        return counterRepository.incrementCounter(1)
+                .map { it.value }
     }
 }
