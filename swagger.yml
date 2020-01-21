@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  description: Counter api
+  version: 0.0.0
+  title: Swagger for Counter API
+
+servers:
+  - url: https://intense-basin-14122.herokuapp.com/
+
+paths:
+  /counter/:
+    get:
+      summary: Get counter
+      description: Get the counter number value (number of times the user pressed the increment button)
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counter'
+
+  /counter:
+    post:
+      summary: Increment Counter
+      description: Increment counter value
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Counter'
+
+components:
+  schemas:
+    Counter:
+      type: object
+      required:
+        - value
+      properties:
+        id:
+          type: integer
+        value:
+          type: integer
